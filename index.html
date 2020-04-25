@@ -17,11 +17,11 @@
 
   <body>
 
-    <div class="container" style="padding-top: 15%; max-width: 450px">
+    <div class="container" style="padding-top: 10%; max-width: 450px">
 
       <div class="row">
 
-        <h2 class="text-center">⛏️ last biome</h2>
+        <h2 class="text-center" style="padding-bottom: 15px">⛏️ last biome</h2>
 
       </div>
 
@@ -38,6 +38,58 @@
           </div>
 
         </div>
+
+        <script>
+
+        function copyAddress() {
+
+        /* Get the text field */
+        var copyText = document.getElementById("serverAddress");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+
+        /* Alert the copied text */
+        var element = document.getElementById("copyButton");
+        element.classList.remove("btn-primary");
+        element.classList.add("btn-success");
+        element.innerHTML = "Copied";
+
+        }
+
+        </script>
+
+        <div style="padding-bottom: 10px">
+          <span id="serverStatus" class="badge badge-secondary">Checking status...</span>
+        </div>
+
+        <script src="https://mcapi.us/scripts/minecraft.js"></script>
+        <script>
+
+          var element = document.getElementById("serverStatus");
+
+          MinecraftAPI.getServerStatus(
+
+            'play.lastbio.me',
+            function(err, status) {
+              if (err) {
+                element.innerHTML = "Error";
+                element.classList.add("badge-warning");
+              } else if (status.online) {
+                element.innerHTML = "Online";
+                element.classList.add("badge-success");
+              } else {
+                element.innerHTML = "Offline";
+                element.classList.add("badge-danger");
+              }
+            }
+          );
+
+        </script>
 
       </div>
 
@@ -61,30 +113,6 @@
       </div>
 
     </div>
-
-    <script>
-
-    function copyAddress() {
-
-    /* Get the text field */
-    var copyText = document.getElementById("serverAddress");
-
-    /* Select the text field */
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); /*For mobile devices*/
-
-    /* Copy the text inside the text field */
-    document.execCommand("copy");
-
-    /* Alert the copied text */
-    var element = document.getElementById("copyButton");
-    element.classList.remove("btn-primary");
-    element.classList.add("btn-success");
-    element.innerHTML = "Copied";
-
-    }
-
-    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
