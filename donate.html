@@ -37,67 +37,15 @@
 
         </div>
 
-        <script>
+        <p class="lead text-center" style="padding-top: 10px">Everything helps.</p>
+        <p class="text-center" style="padding-bottom: 25px">You won't get any reward, but you'll keep the server running.</p>
 
-        function copyAddress() {
+        <dl class="row">
+          <dd class="col text-right">PebbleHost</dt><dd class="col">$12/month</dd>
+          <dd class="col text-right">Google Domains</dt><dd class="col">$2/month</dd>
+        </dl>
 
-        /* Get the text field */
-        var copyText = document.getElementById("serverAddress");
-
-        /* Select the text field */
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
-
-        /* Copy the text inside the text field */
-        document.execCommand("copy");
-
-        /* Alert the copied text */
-        var element = document.getElementById("copyButton");
-        element.classList.remove("btn-primary");
-        element.classList.add("btn-success");
-        element.innerHTML = "Copied";
-
-        }
-
-        </script>
-
-        <div style="padding-bottom: 10px">
-          <span id="serverStatus" class="badge badge-secondary">Checking status...</span>
-        </div>
-
-        <script src="https://mcapi.us/scripts/minecraft.js"></script>
-        <script>
-
-          var element = document.getElementById("serverStatus");
-
-          MinecraftAPI.getServerStatus(
-
-            'play.lastbio.me',
-            function(err, status) {
-              if (status.online == false) {
-                element.innerHTML = "Offline";
-                element.classList.add("badge-danger");
-              } else if (status.online == true) {
-                element.innerHTML = "Online";
-                element.classList.add("badge-success");
-              } else {
-                element.innerHTML = "Error";
-                element.classList.add("badge-warning");
-              }
-            }
-          );
-
-        </script>
-
-        <h3 style="padding-top: 10px">Even $1 will help.</h3>
-        <p>You won't get any in-game reward, but you'll keep the server running.</p>
-        <h5>Breakdown of monthly operating costs (USD):</h5>
-        <ul>
-          <li>$12/month - PebbleHost</li>
-          <li>$2/month - Google Domains</li>
-        </ul>
-
-        <div class="text-center" style="padding-top:10px;padding-bottom:10px;">
+        <div class="text-center" style="padding-top:25px;padding-bottom:10px;">
           <a class="btn btn-primary shadow-sm" href="http://paypal.me/lastbiome" role="button">PayPal.me</a>
         </div>
 
@@ -110,6 +58,56 @@
       </div>
 
     </div>
+
+    <!-- copy button-->
+    <script>
+
+    function copyAddress() {
+
+    /* Get the text field */
+    var copyText = document.getElementById("serverAddress");
+
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+
+    /* Alert the copied text */
+    var element = document.getElementById("copyButton");
+    element.classList.remove("btn-primary");
+    element.classList.add("btn-success");
+    element.innerHTML = "Copied";
+
+    }
+
+    </script>
+
+    <!-- server status-->
+    <script src="https://mcapi.us/scripts/minecraft.js"></script>
+    <script>
+
+      var element = document.getElementById("serverStatus");
+
+      MinecraftAPI.getServerStatus(
+
+        'play.lastbio.me',
+        function(err, status) {
+          if (status.online == false) {
+            element.innerHTML = "Offline";
+            element.classList.add("badge-danger");
+          } else if (status.online == true) {
+            element.innerHTML = "Online";
+            element.classList.add("badge-success");
+          } else {
+            element.innerHTML = "Error";
+            element.classList.add("badge-warning");
+          }
+        }
+      );
+
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
