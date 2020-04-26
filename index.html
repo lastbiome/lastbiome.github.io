@@ -44,55 +44,9 @@
 
         </div>
 
-        <script>
-        function copyAddress() {
-        /* Get the text field */
-        var copyText = document.getElementById("serverAddress");
-
-        /* Select the text field */
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
-
-        /* Copy the text inside the text field */
-        document.execCommand("copy");
-
-        /* Alert the copied text */
-        var element = document.getElementById("copyButton");
-        element.classList.remove("btn-primary");
-        element.classList.add("btn-success");
-        element.innerHTML = "Copied";
-
-        }
-
-        </script>
-
-        <div style="padding-bottom: 10px">
+        <div class="float-right" style="padding-bottom: 10px">
           <span id="serverStatus" class="badge badge-secondary">Checking status...</span>
         </div>
-
-        <script src="https://mcapi.us/scripts/minecraft.js"></script>
-        <script>
-
-          var element = document.getElementById("serverStatus");
-
-          MinecraftAPI.getServerStatus(
-
-            'play.lastbio.me',
-            function(err, status) {
-              if (status.online == false) {
-                element.innerHTML = "Offline";
-                element.classList.add("badge-danger");
-              } else if (status.online == true) {
-                element.innerHTML = "Online";
-                element.classList.add("badge-success");
-              } else {
-                element.innerHTML = "Error";
-                element.classList.add("badge-warning");
-              }
-            }
-          );
-
-        </script>
 
         <nav class="nav flex-column">
           <a class="nav-link" href="discord">💬 Discord</a>
@@ -113,6 +67,53 @@
         </div>
 
       </div>
+
+      <!-- Server Address Copy Button -->
+      <script>
+      function copyAddress() {
+      /* Get the text field */
+      var copyText = document.getElementById("serverAddress");
+
+      /* Select the text field */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+      /* Copy the text inside the text field */
+      document.execCommand("copy");
+
+      /* Alert the copied text */
+      var element = document.getElementById("copyButton");
+      element.classList.remove("btn-primary");
+      element.classList.add("btn-success");
+      element.innerHTML = "Copied";
+      }
+
+      </script>
+
+      <!-- Server Status -->
+      <script src="https://mcapi.us/scripts/minecraft.js"></script>
+      <script>
+
+        var element = document.getElementById("serverStatus");
+
+        MinecraftAPI.getServerStatus(
+
+          'play.lastbio.me',
+          function(err, status) {
+            if (status.online == false) {
+              element.innerHTML = "Offline";
+              element.classList.add("badge-danger");
+            } else if (status.online == true) {
+              element.innerHTML = "Online";
+              element.classList.add("badge-success");
+            } else {
+              element.innerHTML = "Error";
+              element.classList.add("badge-warning");
+            }
+          }
+        );
+
+      </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
