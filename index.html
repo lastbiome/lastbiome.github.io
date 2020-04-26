@@ -13,22 +13,19 @@
 
     <title>last biome Minecraft server</title>
 
+    <style>
+      .container{max-width: 600px}
+    </style>
+
   </head>
 
-  <body>
+  <body style="padding-top: 10%">
 
-    <div class="container" style="padding-top: 10%; max-width: 450px">
-
-      <div class="row">
+    <div class="container">
 
         <h2 class="text-center" style="padding-bottom: 15px">⛏️ last biome</h2>
-        <p>coming soon</p>
 
-      </div>
-
-      <div class="row">
-
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 shadow-sm">
 
           <div class="input-group-prepend">
             <span class="input-group-text">IP</span>
@@ -77,36 +74,29 @@
 
             'play.lastbio.me',
             function(err, status) {
-              if (err) {
-                element.innerHTML = "Error";
-                element.classList.add("badge-warning");
-              } else if (status.online) {
+              if (status.online == false) {
+                element.innerHTML = "Offline";
+                element.classList.add("badge-danger");
+              } else if (status.online == true) {
                 element.innerHTML = "Online";
                 element.classList.add("badge-success");
               } else {
-                element.innerHTML = "Offline";
-                element.classList.add("badge-danger");
+                element.innerHTML = "Error";
+                element.classList.add("badge-warning");
               }
             }
           );
 
         </script>
 
-      </div>
+        <nav class="nav flex-column">
+          <a class="nav-link" href="discord">💬 Discord</a>
+          <a class="nav-link" href="https://www.instagram.com/lastbiome">📸 Instagram</a>
+          <a class="nav-link" href="donate">💳 Donate</a>
+          <a class="nav-link" href="mailto:hi@lastbio.me">✉️ Email</a>
+        </nav>
 
-      <div class="row">
-
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="discord">💬</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://www.instagram.com/lastbiome">📸</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="mailto:hi@lastbio.me">✉️</a>
-          </li>
-        </ul>
+        </div>
 
       </div>
 
