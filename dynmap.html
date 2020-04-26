@@ -28,14 +28,18 @@
 
     <iframe src="http://play.lastbio.me:8037/index.html"></iframe></div>
 
-    <div class="container-fluid input-group mb-3 w-25" style="position: absolute; bottom: 0px; right: 0px; z-index:2; color: white">
+    <div class="d-none d-xl-block"> // hides if smaller than xl = only show on computers
 
-      <div class="input-group-prepend">
-        <span class="input-group-text">IP</span>
-      </div>
-      <input class="form-control input-sm" id="serverAddress" value="play.lastbio.me" style="background-color: white" readonly>
-      <div class="input-group-append">
-        <button class="btn btn-primary" type="button" id="copyButton" onclick="copyAddress()">Copy</button>
+      <div class="container-fluid input-group mb-3 w-25" style="position: absolute; bottom: 0px; right: 0px; z-index:2; color: white">
+
+        <div class="input-group-prepend">
+          <span class="input-group-text">IP</span>
+        </div>
+        <input class="form-control input-sm" id="serverAddress" value="play.lastbio.me" style="background-color: white" readonly>
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button" id="copyButton" onclick="copyAddress()">Copy</button>
+        </div>
+
       </div>
 
     </div>
